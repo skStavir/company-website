@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan EMI Calculator</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 92%; /* Adjust maximum width to create equal spacing */
+            max-width: 400px;
+            margin: 0 1%; /* 1% margin on the right side */
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-right: 3%; /* 1% left margin to move the table to the left */
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+        .intro {
+            font-size: 16px;
+            text-align: center;
+            margin: 10px 0;
+        }
+        h2 {
+            text-align: center;
+            margin-right: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        button#calculateBtn {
+            width: 100%;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #emiResult {
+            font-weight: bold;
+        }
+        .emi-table-container {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Loan EMI Calculator</h2>
+
+        <form id="loanForm">
+            <label for="loanAmount">Loan Amount:</label>
+            <input type="number" id="loanAmount" placeholder="Loan Amount" required>
+
+            <label for="loanTenure">Loan Tenure (Months):</label>
+            <input type="number" id="loanTenure" placeholder="Months" required>
+
+            <label for="interestRate">Interest Rate (%):</label>
+            <input type="number" id="interestRate" step="0.01" placeholder="%" required>
+
+            <div class="button-container">
+                <button type="button" id="calculateBtn" onclick="calculateEMI()">Calculate</button>
+            </div>
+        </form>
+
+        <h3>EMI Per Month</h3>
+        <p id="emiResult">--</p>
+
+        <div class="emi-table-container">
+            <h3>Breakup of EMI</h3>
+            <table id="emiTable">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Principal Remaining</th>
+                        <th>EMI</th>
+                        <th>Interest</th>
+                        <th>Principal</th>
+                    </tr>
+                </thead>
+                <tbody id="emiTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function calculateEMI() {
+            // Get user inputs
+            const loanAmount = parseFloat(document.getElementById("loanAmount").value);
+            const loanTenure = parseInt(document.getElementById("loanTenure").value);
+            const annualInterestRate = parseFloat(document.getElementById("interestRate").value);
+
+            // Calculate monthly interest rate
+            const monthlyInterestRate = annualInterestRate / 12 / 100;
+
+            // Calculate number of months
+            const numberOfMonths = loanTenure;
+
+            // Calculate EMI using the provided formula
+            const emi = (loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfMonths))) / (Math.pow(1 + monthlyInterestRate, numberOfMonths) - 1);
+
+            document.getElementById("emiResult").textContent = emi.toFixed(2);
+
+            // Populate EMI breakdown table
+            const emiTableBody = document.getElementById("emiTableBody");
+            emiTableBody.innerHTML = "";
+
+            let loanBalance = loanAmount;
+            for (let i = 1; i <= loanTenure; i++) {
+                const interest = loanBalance * monthlyInterestRate;
+                const principal = emi - interest;
+
+                const newRow = document.createElement("tr");
+                newRow.innerHTML = `
+                    <td>${i}</td>
+                    <td>${loanBalance.toFixed(2)}</td>
+                    <td>${emi.toFixed(2)}</td>
+                    <td>${interest.toFixed(2)}</td>
+                    <td>${principal.toFixed(2)}</td>
+                `;
+                emiTableBody.appendChild(newRow);
+
+                loanBalance -= principal;
+            }
+        }
+    </script>
+</body>
+</html>
