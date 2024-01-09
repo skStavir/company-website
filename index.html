@@ -17,26 +17,35 @@
     <style>
         /* Add custom styles for the navigation bar */
         nav.navbar {
-            background-color: #171616;
+            position: fixed;
+            width: 72%; /* Adjust the width as per your preference */
+            top: 0;
+            background-color: transparent;
+            z-index: 1000;
+            border: none;
+            margin-left: 10%; /* Adjust the margin to center the navbar */
+            height: 60px;
         }
-   
+    
         nav.navbar a {
             color: #070101 !important;
         }
-
-        nav.navbar a:hover {
-    background-color: rgb(3, 3, 3); /* Change the background color to red on hover */
-    color: #fff !important; /* Change text color on hover */
+        
+        nav.navbar a {
+    font-size: 16px; /* Adjust the font size of the navigation links */
 }
-
-    </style
+        nav.navbar a:hover {
+            background-color: rgb(3, 3, 3);
+            color: #fbf9f9f1 !important;
+        }
+    
+    </style>
 </head>
 
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">Stavir</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,9 +54,6 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#services">Services</a>
@@ -59,47 +65,16 @@
                         <a class="nav-link" href="#tools">Tools</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact Us</a>
+                        <a class="nav-link" href="#about">Our Team</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://in.linkedin.com/in/stavir-innovative-solutions-433712296/" target="_blank">LinkedIn</a>
+                        <a class="nav-link" href="#contact">Contact Us</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-
-<body>
-   <header>
-       <div class="header-top">
-           
-       </div>
-       <nav id="menu-jk">
-           <div class="container">
-               <div class="row">
-                   <!-- <div class="col-md-3 logo col-sm-12">
-                       <img src="assets/images/logo.png" alt="">
-                        <a data-toggle="collapse" data-target="#menu" href="#menu" ><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
-                   </div> -->
-                   <!-- <div id="menu" class="col-md-9 d-none d-md-block">
-                       <ul>
-                            <li><a href="#">Home</a></li>
-                            <!-- <li><a href="#about">About Us</a></li> -->
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#trainings" onclick="openDummyPage()">Trainings</a></li>
-                            <li><a href="#tools">Tools</a></li>
-                            <!-- <li><a href="#blog">Blog</a></li> -->
-                            <!-- <li><a href="#gallery">Gallery</a></li> -->
-                            <li><a href="#contact">Contact Us</a></li>
-                            <li><a href="https://www.linkedin.com/company/your-company" target="_blank">LinkedIn</a></li>
-                        </ul>
-                   </div> -->
-               </div>
-           </div>
-       </nav>
-   </header>
-         
 
          
   <!-- ################# Service Starts Here#######################--->
@@ -148,8 +123,8 @@
         <div class="container">
             <div class="inner-title">
 
-                <h2>Our Services</h2>
-                <p>Take a look at some of our Services</p>
+                <h2>Services We Offer</h2>
+                <p>Take a look at some of Services We Offer</p>
             </div>
 
             <div class="row">
@@ -222,30 +197,30 @@
    <section id="tools" class="tools-section">
       <div class="container">
           <div class="inner-title">
-              <h2>Our Tools</h2>
-              <p>Explore the tools we've developed</p>
+              <h2>Tools</h2>
+              <p>Here is some tools that you may find Interesting</p>
           </div>
   
           <div class="row">
-              <div class="col-md-4 col-sm-6">
+              <div class="col-md-3 col-sm-3">
                   <div class="single-tool">
                           <i class="fas fa-hospital-alt"></i>
                           <h5>Health Guide Advice</h5>
                           <li><a href="http://apps.stavir.com/healthguide" target="_blank">CLICK HERE</a></li>
-                          <p>Health Guide that provides you in detail information about Diet,Exercise,Sleep,Hobbies,Mental Health </p>
+                          <p>In Detail information about Diet,Exercise,Sleep ,Hobbies,Mentalhealth</p>
                   </div>
               </div>
   
-              <div class="col-md-4 col-sm-6">
+              <div class="col-md-3 col-sm-3">
                   <div class="single-tool">
                           <i class="fas fa-funnel-dollar"></i>
                           <h5>Loan EMI Calculator</h5>
                           <li><a href="http://stavir.com/tools/emi-calculator.html" target="_blank">CLICK HERE</a></li>
-                          <p>An Loan EMI Calculator is a utility tool, which helps you to calculate the amount you repay each month towards your loan</p>
+                          <p>To calculate the amount you repay each month towards your loan</p>
                   </div>
               </div>    
    
-              <div class="col-md-4 col-sm-6">
+              <div class="col-md-3 col-sm-3">
                   <div class="single-tool">
                           <i class="fas fa-yen-sign"></i>
                           <h5>Present Value Calculator</h5>
@@ -254,7 +229,7 @@
                   </div>
               </div>
   
-              <div class="col-md-4 col-sm-6">
+              <div class="col-md-3 col-sm-3">
                   <div class="single-tool">
                           <i class="fas fa-funnel-dollar"></i>
                           <h5>Shared List</h5>
@@ -321,7 +296,7 @@
     <div class="container">
         <div class="row">
             <div class="about">
-                <h2>About Us</h2>
+                <h2>Our Team</h2>
                 <p> We are company that driven by human innovation and empowered by latest technologies. We are committed to do our best to meet our client's  requirements. </p>
                 
                 
@@ -339,7 +314,7 @@
             <!-- <div class="col-md-3 glink">
                 <ul>
                     <li><a href="index.html"><i class="fas fa-angle-double-right"></i>Home</a></li>
-                    <li><a href="about_us.html"><i class="fas fa-angle-double-right"></i>About Us</a></li>
+                    <li><a href="about_us.html"><i class="fas fa-angle-double-right"></i>Our Team</a></li>
                     <li><a href="services.html"><i class="fas fa-angle-double-right"></i>Services</a></li>
                     <li><a href="blog.html"><i class="fas fa-angle-double-right"></i>Blog</a></li>
                     <li><a href="pricing.html"><i class="fas fa-angle-double-right"></i>Gallery</a></li>
@@ -377,6 +352,8 @@
         </div> -->
 </body>
 
+<!-- Include this in your HTML file -->
+<link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
 <!-- Contact Us Section -->
 <section id="contact" class="contact-section">
     <footer>
@@ -390,6 +367,11 @@
                     </div>
                     <div class="addet">
                         reachus@stavir.com
+                    </div>
+                    <div class="addet">
+                        <a class="nav-link" href="https://in.linkedin.com/in/stavir-innovative-solutions-433712296/" target="_blank" style="color: white;">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
                     </div>
                 </div>
             </div>
